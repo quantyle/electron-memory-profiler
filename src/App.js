@@ -38,8 +38,13 @@ class App extends React.Component {
     if (this.state.data.length) {
 
       if (this.state.data[this.state.data.length - 1].time < currentUnixTimestamp) {
+
+        let updatedData = [...this.state.data, data];
+        if (updatedData.length > 200){
+          updatedData = updatedData.shift();
+        }
         this.setState({
-          data: [...this.state.data, data],
+          data: updatedData,
           rows: processes
         })
       }

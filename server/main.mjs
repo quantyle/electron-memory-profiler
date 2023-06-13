@@ -14,6 +14,6 @@ wss.on('connection', async function connection(ws) {
     }
   }
 
-  setInterval(sendProcessInfo, 500);
+  setInterval(sendProcessInfo, 1000);
 });
 
