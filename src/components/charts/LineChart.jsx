@@ -35,11 +35,16 @@ const LineChart = props => {
           // fixLeftEdge: true,
         },
 				width: chartContainerRef.current.clientWidth,
-				height: 300,
+				height: window.innerHeight / 2,
 			});
 			chart.timeScale().fitContent();
 
-			const newSeries = chart.addAreaSeries({ lineColor, topColor: areaTopColor, bottomColor: areaBottomColor });
+			const newSeries = chart.addAreaSeries({ 
+        lineColor, 
+        topColor: areaTopColor, 
+        bottomColor: areaBottomColor, 
+        title: "CPU Usage"
+      });
 			newSeries.setData(data);
 
 			window.addEventListener('resize', handleResize);
